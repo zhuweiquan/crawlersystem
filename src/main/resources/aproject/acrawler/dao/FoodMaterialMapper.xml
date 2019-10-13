@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="aproject.acrawler.dao.FoodMaterialMapper">
+    <resultMap id="FoodMaterialMap" type="aproject.acrawler.model.dto.FoodMaterial">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="wuxing" property="wuxing"/>
+        <result column="wuwei" property="wuwei"/>
+        <result column="gongxiao" property="gongxiao"/>
+    </resultMap>
+
+    <select id="queryFoodMaterialList" resultMap="FoodMaterialMap">
+        select
+          id,
+          fm.name as name,
+          wuxing,
+          wuwei,
+          gongxiao
+        from
+          a_foodmaterial as fm
+        limit 10
+    </select>
+</mapper>

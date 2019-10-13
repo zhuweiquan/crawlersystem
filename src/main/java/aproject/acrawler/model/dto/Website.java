@@ -1,5 +1,8 @@
 package aproject.acrawler.model.dto;
 
+/**
+ * 网站信息实体类
+ */
 public class Website {
     private int id;
     private String name;

@@ -1,3 +1,5 @@
+package aproject.acrawler.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -20,16 +22,17 @@ public class SwaggerConfiguration {
                 .apiInfo(restApiInfo())
                 .select()
                 // 指定包名
-                .apis(RequestHandlerSelectors.basePackage("com.curise.learning.controller"))
+                .apis(RequestHandlerSelectors.basePackage("aproject.acrawler.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo restApiInfo() {
         return new ApiInfoBuilder()
-                .title("springboot利用swagger2构建api文档")
+                .title("Aproject swagger2 api文档")
                 .description("简单优雅的restful风格")
                 .termsOfServiceUrl("no terms of serviceUrl")
+                .contact("A PROJECT")
                 .version("1.0")
                 .build();
     }
