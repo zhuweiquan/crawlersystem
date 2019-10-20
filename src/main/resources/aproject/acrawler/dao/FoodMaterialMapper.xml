@@ -21,4 +21,18 @@
           a_foodmaterial as fm
         limit 10
     </select>
+
+    <select id="findInstanceById" resultMap="FoodMaterialMap" >
+        select
+          id,
+          fm.name as name,
+          wuxing,
+          wuwei,
+          gongxiao
+        from
+          a_foodmaterial as fm
+        where
+          fm.id = #{id}
+        limit 1
+    </select>
 </mapper>

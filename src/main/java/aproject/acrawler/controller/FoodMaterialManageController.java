@@ -32,4 +32,18 @@ public class FoodMaterialManageController {
         List<FoodMaterial> data = foodMaterialService.getFoodMaterialList();
         return data;
     }
+
+    /**
+     * 根据ID查询获取食材信息
+     *
+     * @return
+     */
+//    @ApiOperation("根据ID查询获取食材信息")
+//    @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "int")
+//    @RequestMapping(value = "/getMaterialById/{id}", method = RequestMethod.GET)
+//    @ResponseBody
+//    public FoodMaterial getMaterialById(@PathVariable Integer id) {
+//        FoodMaterial data = foodMaterialService.;
+//        return data;
+//    }
 }

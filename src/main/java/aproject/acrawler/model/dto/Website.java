@@ -9,6 +9,7 @@ public class Website {
     private String url;
     private String createTime;
     private String updateTime;
+    private String tabs;
 
     public Website(int id, String name, String url) {
         this.id = id;
@@ -54,5 +55,13 @@ public class Website {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getTabs() {
+        return tabs;
+    }
+
+    public void setTabs(String tabs) {
+        this.tabs = tabs;
     }
 }
