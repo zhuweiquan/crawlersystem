@@ -1,5 +1,11 @@
 package aproject.acrawler.model.dto;
 
+/**
+ * 爬虫任务 模型类
+ * 数据库对应表 -- a_crawler_task
+ * create time : 2019/10/27
+ * author : zhuweiquan
+ */
 public class CrawlerTask {
     private String id;
     private String target_id;
