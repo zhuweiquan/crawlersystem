@@ -13,4 +13,9 @@ public interface AprojectBaseDao<T> {
     void delete(String id);
 
     void update(T t);
+
+    /**
+     * 批量插入方法
+     */
+    void batchInsert(List<T> list);
 }

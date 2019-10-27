@@ -4,24 +4,29 @@ package aproject.acrawler.model.dto;
  * 网站信息实体类
  */
 public class Website {
-    private int id;
+    private String id;
     private String name;
     private String url;
     private String createTime;
     private String updateTime;
     private String tabs;
+    private String description;
 
-    public Website(int id, String name, String url) {
+    public Website(){
+
+    }
+
+    public Website(String id, String name, String url) {
         this.id = id;
         this.name = name;
         this.url = url;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -63,5 +68,13 @@ public class Website {
 
     public void setTabs(String tabs) {
         this.tabs = tabs;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

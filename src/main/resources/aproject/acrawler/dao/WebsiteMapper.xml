@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="aproject.acrawler.dao.WebsiteMapper">
+    <resultMap id="WebsiteMap" type="aproject.acrawler.model.dto.Website">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="url" property="url"/>
+        <result column="description" property="description"/>
+        <result column="tabs" property="tabs"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="queryWebsiteList" resultMap="WebsiteMap">
+        select
+          id,
+          w.name as name,
+          url,
+          description,
+          tabs,
+          create_time,
+          update_time
+        from
+          a_crawler_website as w
+    </select>
+
+    <select id="findInstanceById" resultMap="WebsiteMap" >
+        select
+          id,
+          w.name as name,
+          url,
+          description,
+          tabs,
+          create_time,
+          update_time
+        from
+          a_crawler_website as w
+        where
+          w.id = #{id}
+    </select>
+
+   <insert id="insert" parameterType="aproject.acrawler.model.dto.Website" >
+        INSERT INTO
+        a_crawler_website (id, name, url, description, tabs, create_time, update_time)
+        VALUES
+        (#{id}, #{name}, #{url}, #{description}, #{tabs}, now(), now())
+   </insert>
+
+    <insert id="batchInsert" parameterType="java.util.List" >
+        INSERT INTO
+            a_crawler_website (id, name, url, description, tabs, create_time, update_time)
+        VALUES
+        <foreach collection="list" item="t" separator=",">
+            (#{t.id}, #{t.name}, #{t.url}, #{t.description}, #{t.tabs}, now(), now())
+        </foreach>
+   </insert>
+
+    <update id="update" parameterType="aproject.acrawler.model.dto.Website">
+        update a_crawler_website
+        <set>
+            update_time = now(),
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="url != null">
+                url = #{url},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            <if test="tabs != null">
+                tabs = #{tabs},
+            </if>
+        </set>
+        where
+            id = #{id}
+    </update>
+</mapper>

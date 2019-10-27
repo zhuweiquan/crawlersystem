@@ -56,8 +56,6 @@ public class Downloader {
         this.downloadSetting = downloadSetting;
     }
 
-
-
     public String processUrl(String url) {
         CloseableHttpClient client = null;
         String res = null;
