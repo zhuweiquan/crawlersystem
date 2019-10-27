@@ -7,7 +7,7 @@ package aproject.acrawler.common;
  */
 public enum ResultEnum {
 
-    FAIL(-1,"未知错误"),
+    FAIL(-1,"失败"),
     SUCCESS(0,"成功"),
     USER_NOT_EXIST(1,"用户不存在"),
     USER_IS_EXISTS(2,"用户已存在"),

@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import aproject.acrawler.model.dto.Website;
-import aproject.acrawler.services.FoodMaterialService;
+import aproject.acrawler.common.Result;
+import aproject.acrawler.common.ResultEnum;
 
 import java.util.List;
 
@@ -28,9 +29,13 @@ public class WebsiteManagementController {
 //    @ApiImplicitParam(name = "name", value = "name", required = true, dataType = "String")
     @RequestMapping(value = "/getWebsiteList", method = RequestMethod.GET)
     @ResponseBody
-    public List<Website> getMaterialList() {
-        List<Website> data = websiteManagementService.getWebsiteList();
-        return data;
+    public Result<List<Website>> getMaterialList() {
+        try {
+            List<Website> data = websiteManagementService.getWebsiteList();
+            return new Result<>(ResultEnum.SUCCESS.getCode(), "获取网站列表成功", data);
+        } catch (Exception e) {
+            return new Result<>(ResultEnum.FAIL.getCode(), e.getMessage(), null);
+        }
     }
 
     /**
@@ -42,11 +47,12 @@ public class WebsiteManagementController {
 //    @ApiImplicitParam(name = "name", value = "name", required = true, dataType = "String")
     @RequestMapping(value = "/addWebsite", method = RequestMethod.POST)
     @ResponseBody
-    public void addWebsite(@RequestBody Website website) {
+    public Result<Website> addWebsite(@RequestBody Website website) {
         try {
             websiteManagementService.addWebsite(website);
+            return new Result<>(ResultEnum.SUCCESS.getCode(), "新增成功", website);
         } catch (Exception e) {
-            e.printStackTrace();
+            return new Result<>(ResultEnum.FAIL.getCode(), e.getMessage(), null);
         }
     }
 
