@@ -13,7 +13,7 @@ public interface AprojectBaseDao<T> {
 
     T findInstanceById(String id);
 
-    List<T> findListById(String id);
+    List<T> findListByIds(List<String> ids);
 
     void insert(T t);
 
@@ -25,4 +25,9 @@ public interface AprojectBaseDao<T> {
      * 批量插入方法
      */
     void batchInsert(List<T> list);
+
+    /**
+     * 批量删除方法
+     */
+    void batchDelete(List<String> ids);
 }
