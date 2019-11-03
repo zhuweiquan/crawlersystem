@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="aproject.acrawler.dao.CrawlerTaskMapper">
+    <resultMap id="TaskMap" type="aproject.acrawler.model.dto.CrawlerTask">
+        <result column="id" property="id"/>
+        <result column="target_id" property="targetId"/>
+        <result column="in_url" property="inUrl"/>
+        <result column="storage_table" property="storageTable"/>
+        <result column="pattern" property="pattern"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="data_type" property="dataType"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="count" property="count"/>
+        <result column="duplicate_num" property="duplicateNum"/>
+    </resultMap>
+
+    <select id="queryTaskList" resultMap="TaskMap">
+        select
+          *
+        from
+          a_crawler_task as t
+    </select>
+
+    <select id="findInstanceById" resultMap="TaskMap" parameterType="java.lang.String">
+        select
+          *
+        from
+          a_crawler_task as t
+        where
+          t.id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="aproject.acrawler.model.dto.CrawlerTask" >
+        INSERT INTO
+        a_crawler_task (id, target_id, in_url, storage_table, pattern, name, description, data_type, start_time, end_time, create_time, update_time, count, duplicate_num)
+        VALUES
+        (#{id}, #{targetId}, #{inUrl}, #{storageTable}, #{pattern}, #{name}, #{description}, #{dataType}, #{startTime}, #{endTime}, now(), now(), #{count}, #{duplicateNum})
+   </insert>
+
+
+    <update id="update" parameterType="aproject.acrawler.model.dto.CrawlerTask">
+        update a_crawler_task
+        <set>
+            update_time = now(),
+            <if test="targetId != null and targetId != ''">
+                target_id = #{targetId},
+            </if>
+            <if test="inUrl != null and inUrl != ''">
+                in_url = #{inUrl},
+            </if>
+            <if test="storageTable != null and storageTable != ''">
+                storage_table = #{storageTable},
+            </if>
+            <if test="pattern != null and pattern != ''">
+                pattern = #{pattern},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="dataType != null and dataType != ''">
+                data_type = #{dataType},
+            </if>
+            <if test="startTime != null and startTime != ''">
+                start_time = #{startTime},
+            </if>
+            <if test="endTime != null and endTime != ''">
+                end_time = #{endTime},
+            </if>
+            <if test="count != null and count != ''">
+                count = #{count},
+            </if>
+            <if test="duplicateNum != null and duplicateNum != ''">
+                duplicate_num = #{duplicateNum},
+            </if>
+        </set>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE FROM a_crawler_task WHERE id=#{id};
+    </delete>
+
+
+</mapper>

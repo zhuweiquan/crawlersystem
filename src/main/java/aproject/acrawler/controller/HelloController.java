@@ -1,5 +1,7 @@
 package aproject.acrawler.controller;
 
+import aproject.acrawler.common.Result;
+import aproject.acrawler.common.ResultEnum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiImplicitParam;
@@ -25,7 +27,9 @@ public class HelloController {
     @ApiOperation("项目第一个API")
     @ApiImplicitParam(name = "name", value = "name", required = true, dataType = "String")
     @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
-    public String hello(@PathVariable String name) {
-        return String.format("Welcome to A PROJECT, %s!", name);
+    public Result<String> hello(@PathVariable String name) {
+        String res = String.format("Welcome to A PROJECT, %s!", name);
+        return new Result<>(ResultEnum.SUCCESS.getCode(), "ok", res);
     }
+
 }

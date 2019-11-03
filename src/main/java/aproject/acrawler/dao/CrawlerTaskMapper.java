@@ -15,4 +15,5 @@ public interface CrawlerTaskMapper extends AprojectBaseDao<CrawlerTask> {
      * 查询爬虫任务列表
      */
     List<CrawlerTask> queryCrawlerTaskList();
+
 }

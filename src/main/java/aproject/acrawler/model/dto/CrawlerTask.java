@@ -8,19 +8,35 @@ package aproject.acrawler.model.dto;
  */
 public class CrawlerTask {
     private String id;
-    private String target_id;
-    private String in_url;
-    private String storage_table;
+
+    /**
+     * 对应爬取目标实体ID （网站、网站目录）
+     */
+    private String targetId;
+
+    /**
+     * 初始链接
+     */
+    private String inUrl;
+
+    /**
+     * 存储表格
+     */
+    private String storageTable;
+
+    /**
+     * 匹配模板
+     */
     private String pattern;
     private String name;
     private String description;
-    private String data_type;
-    private String start_time;
-    private String end_time;
+    private String dataType;
+    private String startTime;
+    private String endTime;
     private String createTime;
     private String updateTime;
     private int count;
-    private int duplicate_num;
+    private int duplicateNum;
 
     public String getId() {
         return id;
@@ -30,28 +46,28 @@ public class CrawlerTask {
         this.id = id;
     }
 
-    public String getTarget_id() {
-        return target_id;
+    public String getTargetId() {
+        return targetId;
     }
 
-    public void setTarget_id(String target_id) {
-        this.target_id = target_id;
+    public void setTargetId(String targetId) {
+        this.targetId = targetId;
     }
 
-    public String getIn_url() {
-        return in_url;
+    public String getInUrl() {
+        return inUrl;
     }
 
-    public void setIn_url(String in_url) {
-        this.in_url = in_url;
+    public void setInUrl(String inUrl) {
+        this.inUrl = inUrl;
     }
 
-    public String getStorage_table() {
-        return storage_table;
+    public String getStorageTable() {
+        return storageTable;
     }
 
-    public void setStorage_table(String storage_table) {
-        this.storage_table = storage_table;
+    public void setStorageTable(String storageTable) {
+        this.storageTable = storageTable;
     }
 
     public String getPattern() {
@@ -78,28 +94,28 @@ public class CrawlerTask {
         this.description = description;
     }
 
-    public String getData_type() {
-        return data_type;
+    public String getDataType() {
+        return dataType;
     }
 
-    public void setData_type(String data_type) {
-        this.data_type = data_type;
+    public void setDataType(String dataType) {
+        this.dataType = dataType;
     }
 
-    public String getStart_time() {
-        return start_time;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setStart_time(String start_time) {
-        this.start_time = start_time;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getEnd_time() {
-        return end_time;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getCreateTime() {
@@ -126,11 +142,11 @@ public class CrawlerTask {
         this.count = count;
     }
 
-    public int getDuplicate_num() {
-        return duplicate_num;
+    public int getDuplicateNum() {
+        return duplicateNum;
     }
 
-    public void setDuplicate_num(int duplicate_num) {
-        this.duplicate_num = duplicate_num;
+    public void setDuplicateNum(int duplicateNum) {
+        this.duplicateNum = duplicateNum;
     }
 }
